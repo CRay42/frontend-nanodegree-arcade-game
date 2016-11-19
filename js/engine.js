@@ -88,6 +88,9 @@ var Engine = (function(global) {
         if (enemy.y == player.y + 0.25 * blockHeight) {
           if(enemy.x > player.x - 40 && enemy.x < player.x + 40) {
             console.log("COLLISION!!!!");
+            Resources.get('sound/horn.mp3').play();
+          //  var horn = new Audio('sound/horn.mp3');
+          //  horn.play();
             player.x = Math.floor(numCols / 2) * blockWidth;
             player.y = (numRows - 1.5) * blockHeight;
           }
@@ -183,7 +186,9 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-princess-girl.png'
+        'images/char-princess-girl.png',
+        'sound/horn.mp3',
+        'sound/yay.mp3'
     ]);
     Resources.onReady(init);
 

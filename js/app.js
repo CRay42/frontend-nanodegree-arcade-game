@@ -55,8 +55,8 @@ Player.prototype.update = function() {
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    console.log("PlayerX: " + this.x);
-    console.log("PlayerY: " + this.y);
+//    console.log("PlayerX: " + this.x);
+//    console.log("PlayerY: " + this.y);
 };
 
 
@@ -74,6 +74,8 @@ Player.prototype.handleInput = function(input) {
         this.y -= blockHeight;
       } else {
         // Player has reached water. Reset to original position
+        var yay = new Audio('sound/yay.mp3');
+        yay.play();
         this.x = Math.floor(numCols / 2) * blockWidth;
         this.y = (numRows - 1.5) * blockHeight;
       }
