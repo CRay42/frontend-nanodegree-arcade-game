@@ -46,16 +46,17 @@
              * within our cache; we'll need to load this image.
              */
 
+            // check to see if the resource is a sound file
             if(url.slice(-3) == "mp3") {
               var sound = new Audio();
               sound.oncanplaythrough = function() {
-                /* Once our image has properly loaded, add it to our cache
+                /* Once our sound has properly loaded, add it to our cache
                 * so that we can simply return this image if the developer
                 * attempts to load this file in the future.
                 */
                 resourceCache[url] = sound;
 
-                /* Once the image is actually loaded and properly cached,
+                /* Once the sound is actually loaded and properly cached,
                 * call all of the onReady() callbacks we have defined.
                 */
                 if(isReady()) {
@@ -63,11 +64,7 @@
                 }
               };
 
-              /* Set the initial cache value to false, this will change when
-              * the image's onload event handler is called. Finally, point
-              * the image's src attribute to the passed in URL.
-              */
-            //  resourceCache[url] = false;
+              // point the sound's src attribute to the passed in URL.
               sound.src = url;
             } else {
               var img = new Image();

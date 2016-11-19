@@ -83,10 +83,14 @@ var Engine = (function(global) {
         checkCollisions();
     }
 
+    // Check to see if any enemies have hit the player
     function checkCollisions() {
       allEnemies.forEach(function(enemy) {
+        // If enemy is in the same row as player
         if (enemy.y == player.y + 0.25 * blockHeight) {
+          // If enemy is within 40 pixels of player position
           if(enemy.x > player.x - 40 && enemy.x < player.x + 40) {
+            // play horn sound and reset player position
             Resources.get('sound/horn.mp3').play();
             player.x = Math.floor(numCols / 2) * blockWidth;
             player.y = (numRows - 1.5) * blockHeight;
@@ -174,7 +178,7 @@ var Engine = (function(global) {
         // noop
     }
 
-    /* Go ahead and load all of the images we know we're going to need to
+    /* Go ahead and load all of the images and sounds we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
      * all of these images are properly loaded our game will start.
      */
