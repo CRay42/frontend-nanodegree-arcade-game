@@ -35,19 +35,25 @@ var Player = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/char-princess-girl.png';
-    this.x = 20; // todo: set beginning location
-    this.y = 20;
+    this.x = 200;
+    this.y = 375;
 };
 
+
 Player.prototype.update = function(dt) {
+  /*
     this.x += this.speed * dt;
+    */
 };
+
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+
 Player.prototype.handleInput = function(input) {
+  /*
     if(input == 'left') {
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     } else if(input == 'right') {
@@ -57,7 +63,9 @@ Player.prototype.handleInput = function(input) {
     } else if(input == 'down') {
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+    */
 };
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
