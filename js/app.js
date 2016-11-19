@@ -49,21 +49,33 @@ Player.prototype.update = function(dt) {
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    console.log("PlayerX: " + this.x);
+    console.log("PlayerY: " + this.y);
 };
 
 
 Player.prototype.handleInput = function(input) {
-  /*
     if(input == 'left') {
-      ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+      if(this.x > 0) {
+        this.x -= 100;
+      }
     } else if(input == 'right') {
-      ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+      if(this.x < 400) {
+        this.x += 100;
+      }
     } else if(input == 'up') {
-      ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+      if(this.y > 35) {
+        this.y -= 85;
+      } else {
+        // Player has reached water. Reset to original position
+        this.x = 200;
+        this.y = 375;
+      }
     } else if(input == 'down') {
-      ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+      if(this.y < 375) {
+        this.y += 85;
+      }
     }
-    */
 };
 
 
