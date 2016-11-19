@@ -64,24 +64,30 @@ Player.prototype.handleInput = function(input) {
     if(input == 'left') {
       if(this.x > 0) {
         this.x -= blockWidth;
+      } else {
+        Resources.get('sound/error.mp3').play();
       }
     } else if(input == 'right') {
       if(this.x < (numCols - 1) * blockWidth) {
         this.x += blockWidth;
+      } else {
+        Resources.get('sound/error.mp3').play();
       }
     } else if(input == 'up') {
       if(this.y > blockHeight / 2) {
         this.y -= blockHeight;
       } else {
         // Player has reached water. Reset to original position
-        var yay = new Audio('sound/yay.mp3');
-        yay.play();
+        Resources.get('sound/splash.mp3').play();
+        Resources.get('sound/yay.mp3').play();
         this.x = Math.floor(numCols / 2) * blockWidth;
         this.y = (numRows - 1.5) * blockHeight;
       }
     } else if(input == 'down') {
       if(this.y < (numRows - 1.5) * blockHeight) {
         this.y += blockHeight;
+      } else {
+        Resources.get('sound/error.mp3').play();
       }
     }
 };
