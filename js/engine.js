@@ -188,11 +188,12 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-princess-girl.png',
-        'sound/horn.mp3',
-        'sound/yay.mp3',
-        'sound/pop.mp3',
-        'sound/error.mp3',
-        'sound/splash.mp3'
+        /* All sounds are from SoundBible.com used under
+        *  a Creative Commons Attribution 3.0 license */
+        'sound/horn.mp3', // by Mike Koenig
+        'sound/yay.mp3', // by Jett Rifkin
+        'sound/error.mp3', // by Mike Koenig
+        'sound/splash.mp3' // by Mike Koenig
     ]);
     Resources.onReady(init);
 
