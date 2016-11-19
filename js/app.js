@@ -48,7 +48,7 @@ var Player = function() {
 };
 
 
-Player.prototype.update = function(dt) {
+Player.prototype.update = function() {
 
 };
 
