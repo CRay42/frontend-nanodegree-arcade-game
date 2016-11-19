@@ -1,3 +1,9 @@
+// width and height of grid blocks in pixels
+var blockWidth = 101;
+var blockHeight = 83;
+var numRows = 6;
+var numCols = 5;
+
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -35,15 +41,15 @@ var Player = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/char-princess-girl.png';
-    this.x = 200;
-    this.y = 375;
+
+    // position player in middle of bottom row.
+    this.x = Math.floor(numCols / 2) * blockWidth;
+    this.y = (numRows - 1.5) * blockHeight;
 };
 
 
 Player.prototype.update = function(dt) {
-  /*
-    this.x += this.speed * dt;
-    */
+
 };
 
 
@@ -57,15 +63,15 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(input) {
     if(input == 'left') {
       if(this.x > 0) {
-        this.x -= 100;
+        this.x -= blockWidth;
       }
     } else if(input == 'right') {
       if(this.x < 400) {
-        this.x += 100;
+        this.x += blockWidth;
       }
     } else if(input == 'up') {
       if(this.y > 35) {
-        this.y -= 85;
+        this.y -= blockHeight;
       } else {
         // Player has reached water. Reset to original position
         this.x = 200;
@@ -73,7 +79,7 @@ Player.prototype.handleInput = function(input) {
       }
     } else if(input == 'down') {
       if(this.y < 375) {
-        this.y += 85;
+        this.y += blockHeight;
       }
     }
 };
@@ -90,7 +96,7 @@ var randSpeed;
 
 for(var i = 0; i < numEnemies; i++) {
   // generate random Y position for enemy (50, 135, or 220)
-  randY = (Math.floor(Math.random()*3) * 85) + 50;
+  randY = (Math.floor(Math.random()*3) * 83) + blockHeight/2;
 
   // generate random X position for enemy
   randX = Math.floor(Math.random() * 1000) * - 1;
