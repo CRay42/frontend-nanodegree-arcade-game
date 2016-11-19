@@ -66,19 +66,19 @@ Player.prototype.handleInput = function(input) {
         this.x -= blockWidth;
       }
     } else if(input == 'right') {
-      if(this.x < 400) {
+      if(this.x < (numCols - 1) * blockWidth) {
         this.x += blockWidth;
       }
     } else if(input == 'up') {
-      if(this.y > 35) {
+      if(this.y > blockHeight / 2) {
         this.y -= blockHeight;
       } else {
         // Player has reached water. Reset to original position
-        this.x = 200;
-        this.y = 375;
+        this.x = Math.floor(numCols / 2) * blockWidth;
+        this.y = (numRows - 1.5) * blockHeight;
       }
     } else if(input == 'down') {
-      if(this.y < 375) {
+      if(this.y < (numRows - 1.5) * blockHeight) {
         this.y += blockHeight;
       }
     }
