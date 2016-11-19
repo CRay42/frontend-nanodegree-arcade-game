@@ -95,10 +95,10 @@ var randX;
 var randSpeed;
 
 for(var i = 0; i < numEnemies; i++) {
-  // generate random Y position for enemy (50, 135, or 220)
-  randY = (Math.floor(Math.random()*3) * 83) + blockHeight/2;
+  // generate random Y position for enemy (will appear in one of three rows)
+  randY = (Math.floor(Math.random()*3) * blockHeight) + blockHeight * 0.75;
 
-  // generate random X position for enemy
+  // generate random X position for enemy (starts off screen)
   randX = Math.floor(Math.random() * 1000) * - 1;
 
   // generate random speed for enemy (50, 100, 150, 200, 250)
