@@ -35,8 +35,8 @@ var Player = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/char-princess-girl.png';
-    this.x = 100; // todo: set beginning location
-    this.y = 100;
+    this.x = 20; // todo: set beginning location
+    this.y = 20;
 };
 
 Player.prototype.update = function(dt) {
